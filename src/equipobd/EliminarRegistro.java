@@ -97,7 +97,7 @@ public class EliminarRegistro {
                     if (player_id <= 0) {
                         System.err.println("\n\nEl número debe ser un entero positivo.");
                     } else {
-                        System.err.println("\n\nEse jugador no existe.");
+                        System.err.println("\nEse jugador no existe.");
                     }
                 }
             } while (player_id <= 0 || !ExisteRegistro.existeJugador(con, player_id));
