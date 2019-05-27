@@ -74,10 +74,10 @@ public class EliminarRegistro {
                 }
 
             } else {
-                System.err.println("\n\n¡Todavía existen jugadores en ese equipo! - Imposible borrar.");
+                System.err.println("\n\n\n¡Todavía existen jugadores en ese equipo! - Imposible borrar.");
             }
             
-            continua = SLeer2.datoString("¿Desea seguir eliminando equipos? [s/n]").toLowerCase();
+            continua = SLeer2.datoString("¿Desea seguir eliminando equipos? [s/n]: ").toLowerCase();
 
         } while (continua.equals("s"));
     }
