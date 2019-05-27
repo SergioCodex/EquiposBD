@@ -18,8 +18,8 @@ public class EquipoBD {
     //Variables.
     static Connection con;
     static final String CONNECTION = "jdbc:mysql://localhost:3306/";
-    static final String USER = "root";
-    static final String PASSWORD = "sergio";
+    static final String USER = "admin";
+    static final String PASSWORD = "r00t";
     static final String BASE_DATOS = "bdequipos";
 
     static void printSQLException(SQLException ex) {
@@ -90,7 +90,7 @@ public class EquipoBD {
 
                         break;
                     case 9:
-
+                        EliminarRegistro.eliminarJugador(con);
                         break;
                     case 10:
                         VerTablas.verJugadores(con);
@@ -105,7 +105,7 @@ public class EquipoBD {
 
                         break;
                     case 14:
-
+                        EliminarRegistro.eliminarEquipo(con);
                         break;
                     case 15:
                         VerTablas.verEquipos(con);
