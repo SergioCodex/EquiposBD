@@ -138,6 +138,10 @@ public class AñadirRegistro {
                         + provincia + "' , '" + cod_postal + "');");
 
                 stmt.close();
+                
+                System.out.println("\nLos datos del equipo editado son: ");
+                ConsultarJugadorEquipo.mostrarEquipo(con, team_id);
+                Imprimir.imprimirResumen(CuantosEquipos.numeroEquipos(con), CuantosJugadores.numeroJugadores(con));
 
             } catch (SQLException ex) {
                 EquipoBD.printSQLException(ex);
@@ -276,6 +280,11 @@ public class AñadirRegistro {
                 rs.beforeFirst();
 
                 stmt.close();
+                
+                System.out.println("\nnLos datos del jugador añadido son: ");
+                ConsultarJugadorEquipo.mostrarJugador(con, player_id);
+                Imprimir.imprimirResumen(CuantosEquipos.numeroEquipos(con), CuantosJugadores.numeroJugadores(con));
+                
 
             } catch (SQLException ex) {
                 EquipoBD.printSQLException(ex);

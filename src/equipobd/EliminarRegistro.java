@@ -25,18 +25,7 @@ public class EliminarRegistro {
 
         do {
 
-            do {
-                team_id = SLeer2.datoInt("\n- Introduce el ID del equipo: ");
-
-                if (team_id <= 0 || !ExisteRegistro.existeEquipo(con, team_id)) {
-                    if (team_id <= 0) {
-                        System.err.println("\n\nEl número debe ser un entero positivo.");
-                    } else {
-                        System.err.println("\n\nEse equipo no existe.");
-                    }
-                }
-
-            } while (team_id <= 0 || !ExisteRegistro.existeEquipo(con, team_id));
+            team_id = Entrada.pideTeam_idUpdate(con);
 
             SLeer2.limpiar();
 
@@ -90,17 +79,7 @@ public class EliminarRegistro {
 
         do {
 
-            do {
-                player_id = SLeer2.datoInt("\n- Introduce el ID del jugador: ");
-
-                if (player_id <= 0 || !ExisteRegistro.existeJugador(con, player_id)) {
-                    if (player_id <= 0) {
-                        System.err.println("\n\nEl número debe ser un entero positivo.");
-                    } else {
-                        System.err.println("\nEse jugador no existe.");
-                    }
-                }
-            } while (player_id <= 0 || !ExisteRegistro.existeJugador(con, player_id));
+            player_id = Entrada.pidePlayer_idUpdate(con);
 
             SLeer2.limpiar();
 
