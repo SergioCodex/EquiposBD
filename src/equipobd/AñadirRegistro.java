@@ -21,11 +21,7 @@ public class AñadirRegistro {
 
         String resp = "";
         int team_id;
-        String eq_nombre;
-        String estadio;
-        String poblacion;
-        String provincia;
-        String cod_postal;
+        String eq_nombre, estadio, poblacion, provincia, cod_postal;
 
         do {
             Statement stmt = null;
@@ -115,68 +111,24 @@ public class AñadirRegistro {
 
         String resp = "";
         int team_id;
-        String eq_nombre;
-        String estadio;
-        String poblacion;
-        String provincia;
-        String cod_postal;
+        String eq_nombre, estadio, poblacion, provincia, cod_postal;
 
         do {
-            Statement stmt = null;
+            Statement stmt;
 
-            do {
-                team_id = SLeer2.datoInt("\n- Introduce su número de equipo: ");
-
-                if (team_id <= 0 || ExisteRegistro.existeEquipo(con, team_id)) {
-                    if (team_id <= 0) {
-                        System.err.println("\n\nEl campo debe ser un entero positivo.");
-                    } else {
-                        System.err.println("\n\nEse equipo ya existe.");
-                    }
-                }
-            } while (team_id <= 0 || ExisteRegistro.existeEquipo(con, team_id));
+            team_id = Entrada.pideTeam_idAgregar(con);
 
             SLeer2.limpiar();
 
-            do {
-                eq_nombre = SLeer2.datoString("- Introduce el nombre del equipo: ").toUpperCase();
+            eq_nombre = Entrada.pideEq_nombre();
 
-                if (eq_nombre.length() < 0 || eq_nombre.length() > 40) {
-                    System.err.println("\n\nImposible introducir un nombre tan largo.");
-                }
-            } while (eq_nombre.length() < 0 || eq_nombre.length() > 40);
+            estadio = Entrada.pideEstadio();
 
-            do {
-                estadio = SLeer2.datoString("- Introduce el nombre de su estadio: ").toUpperCase();
+            poblacion = Entrada.pidePoblacion();
 
-                if (estadio.length() < 0 || estadio.length() > 40) {
-                    System.err.println("\n\nImposible introducir un nombre tan largo.");
-                }
-            } while (estadio.length() < 0 || estadio.length() > 40);
+            provincia = Entrada.pideProvincia();
 
-            do {
-                poblacion = SLeer2.datoString("- Introduce el nombre de la población: ").toUpperCase();
-
-                if (poblacion.length() < 0 || poblacion.length() > 20) {
-                    System.err.println("\n\nImposible introducir un nombre tan largo.");
-                }
-            } while (poblacion.length() < 0 || poblacion.length() > 20);
-
-            do {
-                provincia = SLeer2.datoString("- Introduce el nombre de la provincia: ").toUpperCase();
-
-                if (provincia.length() < 0 || provincia.length() > 20) {
-                    System.err.println("\n\nImposible introducir un nombre tan largo.");
-                }
-            } while (provincia.length() < 0 || provincia.length() > 20);
-
-            do {
-                cod_postal = SLeer2.datoString("- Introduce el código postal del equipo: ");
-
-                if (cod_postal.length() != 5) {
-                    System.err.println("\n\nCódigo postal incorrecto, debe contener 5 cifras.");
-                }
-            } while (cod_postal.length() != 5);
+            cod_postal = Entrada.pideCod_postal();
 
             try {
 
@@ -281,7 +233,6 @@ public class AñadirRegistro {
         } while (resp.equals("s"));
 
     }*/
-    
     static void insertarJugador(Connection con) {
 
         String resp = "";
@@ -294,66 +245,27 @@ public class AñadirRegistro {
         do {
             Statement stmt = null;
 
-            do {
-                player_id = SLeer2.datoInt("\n- Introduce su número de jugador: ");
-
-                if (player_id <= 0 || ExisteRegistro.existeJugador(con, player_id)) {
-                    if (player_id <= 0) {
-                        System.err.println("\n\nEl campo debe ser un entero positivo.");
-                    } else {
-                        System.err.println("\n\nEse jugador ya existe.");
-                    }
-                }
-            } while (player_id <= 0 || ExisteRegistro.existeJugador(con, player_id));
+            player_id = Entrada.pidePlayer_idAgregar(con);
 
             SLeer2.limpiar();
 
-            do {
-                team_id = SLeer2.datoInt("\n - Introduce su número de equipo: ");
-
-                if (team_id <= 0 || !ExisteRegistro.existeEquipo(con, team_id)) {
-                    if (team_id <= 0) {
-                        System.err.println("\n\nEl campo debe ser un entero positivo.");
-                    } else {
-                        System.err.println("\n\nEse equipo no existe.");
-                    }
-                }
-
-            } while (team_id <= 0 || !ExisteRegistro.existeEquipo(con, team_id));
+            team_id = Entrada.pideTeam_idUpdate(con);
 
             SLeer2.limpiar();
-            
-            do {
-                nombre = SLeer2.datoString("- Introduce el nombre del jugador: ").toUpperCase();
 
-                if (nombre.length() < 0 || nombre.length() > 40) {
-                    System.err.println("\n\nImposible introducir un nombre tan largo.");
-                }
-            } while (nombre.length() < 0 || nombre.length() > 40);
+            nombre = Entrada.pideNombreJug();
 
-            do {
-                dorsal = SLeer2.datoInt("- Introduce el dorsal del jugador: ");
+            dorsal = Entrada.pideDorsal();
 
-                if (dorsal <= 0) {
-                    System.err.println("\n\nEl campo debe ser un entero positivo.");
-                }
-            } while (dorsal <= 0);
-
-            do {
-                edad = SLeer2.datoInt("- Introduce la edad del jugador: ");
-
-                if (edad <= 0) {
-                    System.err.println("\n\nEl campo debe ser un entero positivo.");
-                }
-            } while (edad <= 0);
+            edad = Entrada.pideEdad();
 
             SLeer2.limpiar();
-            
+
             try {
 
                 stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ResultSet rs = stmt.executeQuery("SELECT * FROM " + EquipoBD.BASE_DATOS + ".JUGADORES");
-                
+
                 rs.moveToInsertRow();
                 rs.updateInt("PLAYER_ID", player_id);
                 rs.updateInt("TEAM_ID", team_id);
@@ -374,5 +286,5 @@ public class AñadirRegistro {
         } while (resp.equals("s"));
 
     }
-    
+
 }

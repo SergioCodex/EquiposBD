@@ -27,8 +27,6 @@ public class ConsultarJugadorEquipo {
 
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(select);
-            
-            
 
             while (rs.next()) {
                 Imprimir.imprimirEquipo(rs.getInt(1), rs.getString(2), rs.getString(3),
