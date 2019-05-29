@@ -12,11 +12,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
+ * CLASE ELIMINA REGISTROS DE LAS TABLAS EQUIPOS Y JUGADORES.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class EliminarRegistro {
 
+    /**
+     * Método que elimina un equipo de la tabla EQUIPOS, comprueba además si
+     * existen jugadores asociados a ese equipo, si es así, no será posible
+     * eliminarlo.
+     *
+     * @param con Conexión con la BD
+     */
     static void eliminarEquipo(Connection con) {
 
         String resp = "";
@@ -65,12 +74,25 @@ public class EliminarRegistro {
             } else {
                 System.err.println("\n\n\n¡Todavía existen jugadores en ese equipo! - Imposible borrar.");
             }
-            
-            continua = SLeer2.datoString("¿Desea seguir eliminando equipos? [s/n]: ").toLowerCase();
+
+            do {
+                continua = SLeer2.datoString("¿Desea seguir eliminando equipos? [s/n]: ").toLowerCase();
+
+                if (!continua.equals("s") && !continua.equals("n")) {
+                    System.err.println("\n¡Opción no valida!");
+                }
+
+            } while (!continua.equals("s") && !continua.equals("n"));
 
         } while (continua.equals("s"));
     }
 
+    /**
+     * Método que elimina de la tabla JUGADORES un registro, elegido por el
+     * usuario
+     *
+     * @param con Conexión con la BD.
+     */
     static void eliminarJugador(Connection con) {
 
         String resp = "";
@@ -109,7 +131,14 @@ public class EliminarRegistro {
                 System.out.println("\nSe ha cancelado la eliminación del jugador.");
             }
 
-            continua = SLeer2.datoString("¿Desea seguir eliminando jugadores? [s/n]: ").toLowerCase();
+            do {
+                continua = SLeer2.datoString("¿Desea seguir eliminando jugadores? [s/n]: ").toLowerCase();
+
+                if (!continua.equals("s") && !continua.equals("n")) {
+                    System.err.println("\n¡Opción no valida!");
+                }
+
+            } while (!continua.equals("s") && !continua.equals("n"));
 
         } while (continua.equals("s"));
 

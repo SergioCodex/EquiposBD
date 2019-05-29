@@ -11,9 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE MODIFICA REGISTROS DE LAS TABLAS EQUIPOS Y JUGADORES 
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class ModificarRegistro {
 
@@ -70,7 +71,7 @@ public class ModificarRegistro {
                 stmt.executeUpdate("UPDATE " + EquipoBD.BASE_DATOS + ".EQUIPOS SET " + campo + " = '" + valor
                         + "' WHERE TEAM_ID = " + team_id + ";");
 
-                System.out.println("\nEquipo modificado con éxito. \nLos datos del equipo editado son: ");
+                System.out.println("\n\u001B[32mEquipo modificado con éxito.\u001B[0m \nLos datos del equipo editado son: ");
                 ConsultarJugadorEquipo.mostrarEquipo(con, team_id);
                 Imprimir.imprimirResumen(CuantosEquipos.numeroEquipos(con), CuantosJugadores.numeroJugadores(con));
 
@@ -148,7 +149,7 @@ public class ModificarRegistro {
 
                     }
 
-                    System.out.println("\nJugador modificado con éxito. \nLos datos del jugador editado son: ");
+                    System.out.println("\n\u001B[32mJugador modificado con éxito.\u001B[0m \nLos datos del jugador editado son: ");
                     ConsultarJugadorEquipo.mostrarJugador(con, player_id);
                     Imprimir.imprimirResumen(CuantosEquipos.numeroEquipos(con), CuantosJugadores.numeroJugadores(con));
                     

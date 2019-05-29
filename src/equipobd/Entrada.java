@@ -8,9 +8,10 @@ package equipobd;
 import Sleer2.SLeer2;
 import java.sql.Connection;
 
-/**
+/**CLASE ENTRADA DE DATOS.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class Entrada {
 

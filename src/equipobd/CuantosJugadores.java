@@ -11,12 +11,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE DEVUELVE CUANTOS JUGADORES EXISTEN.
  *
- * @author root-admin
+ * @author Sergio Granero García.
+ * @version v1.1
  */
 public class CuantosJugadores {
     
+    /**Devuelve el número de jugadores que existen en la tabla JUGADORES, comprobando
+     * antes si la base de datos y la tabla existen.
+     * 
+     * @param con Conexión con la BD.
+     * @return int número de jugadores.
+     */
     static int numeroJugadores(Connection con) {
         
         int num_jug = 0;
@@ -53,6 +60,12 @@ public class CuantosJugadores {
         
     }
     
+    /**Devuelve el número de jugadores que existen para un determinado equipo.
+     * 
+     * @param con Conexión con la BD.
+     * @param team_id Clave primaria de EQUIPO
+     * @return int número de jugadores por equipo.
+     */
     static int numeroJugadoresEquipo(Connection con, int team_id) {
         
         int num_jug = 0;

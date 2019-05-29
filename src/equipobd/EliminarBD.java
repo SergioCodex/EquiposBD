@@ -10,12 +10,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE ELIMINA LA BASE DE DATOS
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class EliminarBD {
 
+    /**Elimina la base de datos.
+     * 
+     * @param con Conexión con el servidor mysql.
+     */
     static void eliminarBD(Connection con) {
         String resp;
         SLeer2.limpiar();

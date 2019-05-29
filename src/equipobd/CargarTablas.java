@@ -9,12 +9,18 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE CARGA TABLAS CON DATOS DE EQUIPOS Y JUGADORES.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class CargarTablas {
 
+    /**Carga de datos en las tablas de la BD. Se asegura de que no existan claves primarias
+     * repetidas, además de que exista la base de datos y la tabla donde volcar los datos.
+     * 
+     * @param con Conexión con la BD.
+     */
     static void cargaTablas(Connection con) {
 
         Statement stmt = null;

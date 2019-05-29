@@ -12,8 +12,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
+ * CLASE AÑADIR REGISTROS EN LA BASE DE DATOS.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class AñadirRegistro {
 
@@ -107,6 +109,11 @@ public class AñadirRegistro {
         } while (resp.equals("s"));
 
     }*/
+    /**
+     * Inserta un equipo con sus respectivos campos en la base de datos.
+     *
+     * @param con Conexión a la BD
+     */
     static void insertarEquipo(Connection con) {
 
         String resp = "";
@@ -132,13 +139,15 @@ public class AñadirRegistro {
 
             try {
 
+                //Método mysql.
                 stmt = con.createStatement();
                 stmt.executeUpdate("INSERT INTO " + EquipoBD.BASE_DATOS + ".EQUIPOS VALUES(" + team_id
                         + ", '" + eq_nombre + "' , '" + estadio + "' , '" + poblacion + "' , '"
                         + provincia + "' , '" + cod_postal + "');");
 
                 stmt.close();
-                
+
+                //Resumen
                 System.out.println("\nLos datos del equipo editado son: ");
                 ConsultarJugadorEquipo.mostrarEquipo(con, team_id);
                 Imprimir.imprimirResumen(CuantosEquipos.numeroEquipos(con), CuantosJugadores.numeroJugadores(con));
@@ -147,7 +156,14 @@ public class AñadirRegistro {
                 EquipoBD.printSQLException(ex);
             }
 
-            resp = SLeer2.datoString("¿Quieres introducir otro registro más? [s/n]: ").toLowerCase();
+            do {
+                resp = SLeer2.datoString("¿Quieres introducir otro registro más? [s/n]: ").toLowerCase();
+
+                if (!resp.equals("s") && !resp.equals("n")) {
+                    System.err.println("\n¡Opción no valida!");
+                }
+
+            } while (!resp.equals("s") && !resp.equals("n"));
 
         } while (resp.equals("s"));
 
@@ -237,6 +253,11 @@ public class AñadirRegistro {
         } while (resp.equals("s"));
 
     }*/
+    /**
+     * Inserta un jugador en la tabla JUGADORES de la base de datos.
+     *
+     * @param con Conexión con la base de datos.
+     */
     static void insertarJugador(Connection con) {
 
         String resp = "";
@@ -280,17 +301,23 @@ public class AñadirRegistro {
                 rs.beforeFirst();
 
                 stmt.close();
-                
+
                 System.out.println("\nnLos datos del jugador añadido son: ");
                 ConsultarJugadorEquipo.mostrarJugador(con, player_id);
                 Imprimir.imprimirResumen(CuantosEquipos.numeroEquipos(con), CuantosJugadores.numeroJugadores(con));
-                
 
             } catch (SQLException ex) {
                 EquipoBD.printSQLException(ex);
             }
 
-            resp = SLeer2.datoString("¿Quieres introducir otro registro más? [s/n]: ").toLowerCase();
+            do {
+                resp = SLeer2.datoString("¿Quieres introducir otro registro más? [s/n]: ").toLowerCase();
+
+                if (!resp.equals("s") && !resp.equals("n")) {
+                    System.err.println("\n¡Opción no valida!");
+                }
+
+            } while (!resp.equals("s") && !resp.equals("n"));
 
         } while (resp.equals("s"));
 

@@ -10,12 +10,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE CONSULTA JUGADORES Y EQUIPOS.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class ConsultarJugadorEquipo {
 
+    /**Busca y muestra/imprime un equipo dependiendo del team_id proporcionado.
+     * 
+     * @param con Conexión con la BD.
+     * @param team_id Clave primaria de EQUIPOS.
+     */
     static void mostrarEquipo(Connection con, int team_id) {
 
         Statement stmt = null;
@@ -31,7 +37,6 @@ public class ConsultarJugadorEquipo {
             while (rs.next()) {
                 Imprimir.imprimirEquipo(rs.getInt(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString(5), rs.getString(6), cont);
-
             }
 
             stmt.close();
@@ -42,6 +47,11 @@ public class ConsultarJugadorEquipo {
 
     }
 
+    /**Busca y muestra/imprime un jugador dependiendo del player_id proporcionado.
+     * 
+     * @param con Conexión con la BD
+     * @param player_id Clave primaria de JUGADORES.
+     */
     static void mostrarJugador(Connection con, int player_id) {
 
         Statement stmt = null;

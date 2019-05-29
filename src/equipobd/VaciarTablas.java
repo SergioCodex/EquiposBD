@@ -11,9 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE VACIAR TABLAS EQUIPOS/JUGADORES.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class VaciarTablas {
 

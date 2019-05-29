@@ -9,16 +9,24 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE CREA TABLAS EN LA BASE DE DATOS.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class CrearTablas {
 
+    /**Crea las tablas EQUIPOS y JUGADORES en la base de datos, comprobando antes si 
+     * existe. El orden es importante, ya que la tabla JUGADORES contiene una 
+     * clave ajena de EQUIPOS.
+     * 
+     * @param con Conexión con la BD.
+     */
     static void crearTablas(Connection con) {
 
         if (ExisteData.existeBaseDatos(con)) {
 
+            //Crea EQUIPOS.
             String create_equiposString = "create table if not exists " + EquipoBD.BASE_DATOS + ".EQUIPOS "
                     + "(TEAM_ID integer NOT NULL,"
                     + "EQ_NOMBRE varchar(40) NOT NULL,"
@@ -28,6 +36,7 @@ public class CrearTablas {
                     + "COD_POSTAL char(5),"
                     + "PRIMARY KEY (TEAM_ID))";
 
+            //Crea JUGADORES.
             String create_jugadoresString = "create table if not exists " + EquipoBD.BASE_DATOS + ".JUGADORES"
                     + "(PLAYER_ID integer NOT NULL,"
                     + "TEAM_ID integer NOT NULL,"
@@ -44,7 +53,7 @@ public class CrearTablas {
                 stmt.executeUpdate(create_jugadoresString);
                 stmt.close();
 
-                System.out.println("\n[Las tablas de EQUIPOS y JUGADORES han sido creadas]");
+                System.out.println("\n\u001B[32m[Las tablas de EQUIPOS y JUGADORES han sido creadas]\u001B[0m");
             } catch (SQLException e) {
                 EquipoBD.printSQLException(e);
             }

@@ -11,12 +11,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE DEVUELVE CUANTOS EQUIPOS EXISTEN.
  *
- * @author root-admin
+ * @author Sergio Granero García.
+ * @version v1.1
  */
 public class CuantosEquipos {
 
+    /**Devuelve el número de equipos que existen en la tabla EQUIPOS, comprobando
+     * antes si existe la base de datos y la tabla para evitar excepciones sql.
+     * 
+     * @param con Conexión con la BD.
+     * @return int número de equipos.
+     */
     static int numeroEquipos(Connection con) {
 
         int num_equipos = 0;

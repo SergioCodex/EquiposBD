@@ -10,9 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE EXISTE REGISTRO EN TABLAS.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class ExisteRegistro {
 

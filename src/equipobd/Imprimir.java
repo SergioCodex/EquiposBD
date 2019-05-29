@@ -5,16 +5,17 @@
  */
 package equipobd;
 
-/**
+/**CLASE IMPRIMIR EQUIPOS/JUGADORES DE LA BASE DE DATOS.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class Imprimir {
 
     static void imprimirEquipo(int team_id, String eq_nombre, String estadio, String poblacion, String provincia, String cod_postal, int cont) {
 
         System.out.println("\n\n+------------------------------------+");
-        System.out.println("           Registro nº" + cont);
+        System.out.println("           \u001B[36mRegistro nº" + cont + "\u001B[0m");
         System.out.println("+----------------+-------------------+");
         System.out.println("     TEAM_ID\t |  " + team_id);
         System.out.println("     EQ_NOMBRE\t |  " + eq_nombre);
@@ -30,7 +31,7 @@ public class Imprimir {
     static void imprimirJugadores(int player_id, int team_id, String nombre, int dorsal, int edad, int cont) {
 
         System.out.println("\n\n+------------------------------------+");
-        System.out.println("           Registro nº" + cont);
+        System.out.println("           \u001B[36mRegistro nº" + cont + "\u001B[0m");
         System.out.println("+----------------+-------------------+");
         System.out.println("     PLAYER_ID\t |  " + player_id);
         System.out.println("     TEAM_ID\t |  " + team_id);

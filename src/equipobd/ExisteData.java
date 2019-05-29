@@ -9,12 +9,11 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-/**
+/**CLASE EXISTE BASE DE DATOS O TABLAS.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class ExisteData {
 
@@ -30,7 +29,6 @@ public class ExisteData {
                 if (rs.getString("TABLE_CAT").equals(EquipoBD.BASE_DATOS)) {
                     existebd = true;
                 }
-
             }
 
         } catch (SQLException ex) {

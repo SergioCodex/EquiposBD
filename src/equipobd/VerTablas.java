@@ -11,9 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE VER TABLAS EQUIPOS/JUGADORES.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @versio v1.1
  */
 public class VerTablas {
 

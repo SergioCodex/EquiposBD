@@ -9,12 +9,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
+/**CLASE ELIMINA TABLAS EQUIPOS/JUGADORES.
  *
- * @author root-admin
+ * @author Sergio Granero García
+ * @version v1.1
  */
 public class EliminarTablas {
 
+    /**Elimina las tablas de EQUIPOS y JUGADORES de la base de datos.
+     * 
+     * @param con Conexion con la BD. 
+     */
     static void eliminarTablas(Connection con) {
 
         String dropJugadores = "DROP TABLE IF EXISTS " + EquipoBD.BASE_DATOS + ".JUGADORES";
@@ -29,7 +34,7 @@ public class EliminarTablas {
             stmt.executeUpdate(dropEquipos);
             stmt.close();
 
-            System.out.println("\n[Las tablas JUGADORES y EQUIPOS han sido eliminadas]");
+            System.out.println("\n\u001B[32m[Las tablas JUGADORES y EQUIPOS han sido eliminadas]\u001B[0m");
 
         } catch (SQLException ex) {
             EquipoBD.printSQLException(ex);
