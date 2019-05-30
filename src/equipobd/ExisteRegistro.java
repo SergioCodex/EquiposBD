@@ -17,6 +17,12 @@ import java.sql.Statement;
  */
 public class ExisteRegistro {
 
+    /**Comprueba si existe un JUGADOR dependiendo de su clave primaria.
+     * 
+     * @param con Conexión con la BD
+     * @param PLAYER_ID clave primaria de JUGADORES.
+     * @return true si existe, false si no.
+     */
     static boolean existeJugador(Connection con, int PLAYER_ID) {
 
         boolean existe = false;
@@ -51,6 +57,12 @@ public class ExisteRegistro {
         return existe;
     }
 
+    /**Comprueba si existe un EQUIPO dependiendo de su clave primaria.
+     * 
+     * @param con Conexión con la BD
+     * @param TEAM_ID clave primaria de EQUIPOS
+     * @return true si existe, false si no.
+     */
     static boolean existeEquipo(Connection con, int TEAM_ID) {
 
         boolean existe = false;

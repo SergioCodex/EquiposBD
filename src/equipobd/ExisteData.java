@@ -17,6 +17,12 @@ import java.sql.SQLException;
  */
 public class ExisteData {
 
+    /**Comprueba si existe en el servidor la base de datos proporcionada en la 
+     * constante BASE_DATOS 
+     * 
+     * @param con Conexión con el servidor MYSQL
+     * @return boolean false si no existe, true si existe.
+     */
     static boolean existeBaseDatos(Connection con) {
 
         boolean existebd = false;
@@ -38,6 +44,11 @@ public class ExisteData {
         return existebd;
     }
 
+    /**Comprueba si existe la tabla EQUIPOS en la base de datos.
+     * 
+     * @param con Conexión con la BD
+     * @return false si no existe, true si existe.
+     */
     static boolean existeTablaEquipo(Connection con) {
 
         boolean existe = false;
@@ -57,6 +68,11 @@ public class ExisteData {
         return existe;
     }
     
+    /**Comprueba si existe la tabla JUGADORES.
+     * 
+     * @param con Conexión con la BD.
+     * @return false si no existe, true si existe.
+     */
     static boolean existeTablaJugadores(Connection con) {
 
         boolean existe = false;

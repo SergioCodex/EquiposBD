@@ -18,6 +18,11 @@ import java.sql.Statement;
  */
 public class ModificarRegistro {
 
+    /**Método que modifica un equipo en concreto, elegido por el usuario, comprobando
+     * que los nuevos parámetros introducidos sean compatibles con la base de datos.
+     * 
+     * @param con Conexión con la BD
+     */
     static void modificarEquipo(Connection con) {
 
         int team_id;
@@ -86,6 +91,11 @@ public class ModificarRegistro {
 
     }
 
+    /**Método que modifica un jugador de la tabla JUGADORES, elegido por el usuario,
+     * comprueba si los nuevos parámetros son compatibles con la base de datos.
+     * 
+     * @param con Conexión con la DB.
+     */
     static void modificarJugador(Connection con) {
 
         int player_id, team_id, dorsal, edad;

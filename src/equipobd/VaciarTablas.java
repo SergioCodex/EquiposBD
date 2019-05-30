@@ -39,6 +39,11 @@ public class VaciarTablas {
         }
         
     }*/
+    /**Método que llama a vaciarJugadores() y vaciarEquipos() para vaciar ambas 
+     * tablas a la vez.
+     * 
+     * @param con Conexión con la BD
+     */
     static void vaciarTablas(Connection con) {
 
         vaciarJugadores(con);
@@ -47,6 +52,12 @@ public class VaciarTablas {
 
     }
 
+    /**Vacia la tabla JUGADORES de datos, comprobando ante si existe la tabla a 
+     * vaciar para evitar excepciones sql. Además, pregunta al usuario si está
+     * seguro de vaciar la tabla.
+     * 
+     * @param con 
+     */
     static void vaciarJugadores(Connection con) {
 
         String resp;
@@ -130,6 +141,14 @@ public class VaciarTablas {
         }
 
     }*/
+    
+    /**Vacia la tabla EQUIPOS de datos, comprobando antes si existe algún jugador
+     * y en caso de hacerlo, no permite su borrado para evitar excepciones sql. También
+     * comprueba la existencia de la tabla y se asegura de que el usuario esté
+     * de acuerdo en vaciar la tabla.
+     * 
+     * @param con Conexión con la BD.
+     */
     static void vaciarEquipos(Connection con) {
 
         String resp;

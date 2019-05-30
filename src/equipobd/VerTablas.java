@@ -18,6 +18,11 @@ import java.sql.Statement;
  */
 public class VerTablas {
 
+    /**Realiza una consulta SELECT en la tabla EQUIPOS para volcar todos los datos
+     * y después imprimirlos por pantalla.
+     * 
+     * @param con Conexión con la BD.
+     */
     static void verEquipos(Connection con) {
 
         String verEquipos = "SELECT * FROM " + EquipoBD.BASE_DATOS + ".EQUIPOS";
@@ -57,6 +62,11 @@ public class VerTablas {
 
     }
 
+    /**Realiza una consulta SELECT en la tabla JUGADORES para volcar todos los datos
+     * y después imprimirlos por pantalla.
+     * 
+     * @param con Conexión con la BD.
+     */
     static void verJugadores(Connection con) {
 
         String verJugadores = "SELECT * FROM " + EquipoBD.BASE_DATOS + ".JUGADORES";
@@ -98,6 +108,12 @@ public class VerTablas {
 
     }
 
+    /**Busca un jugador en la tabla JUGADORES dependiendo del player_id que
+     * introduzca el usuario por tecla, mostrándolo seguidamente por pantalla.
+     * Comprueba además si existe la base de datos y la tabla.
+     * 
+     * @param con Conexión con la BD.
+     */
     static void verJugadoresEquipo(Connection con) {
 
         int num_equipos = CuantosEquipos.numeroEquipos(con);
